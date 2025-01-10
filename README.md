@@ -1,75 +1,42 @@
-# Nuxt Minimal Starter
+https://github.com/nuxt/test-utils/pull/1054
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+#### Steps to reproduce
 
-## Setup
+1. Clone repo and install dependencies using PNPM
+2. Run `pnpm test`
 
-Make sure to install dependencies:
+#### Expected result
 
-```bash
-# npm
-npm install
+Test should pass
 
-# pnpm
-pnpm install
+#### Actual result
 
-# yarn
-yarn install
+Tests fail while setting up e2e testing environment, [as documented here](https://nuxt.com/docs/getting-started/testing#conflict-with-end-to-end-testing). The following error is produced.
 
-# bun
-bun install
 ```
+> nuxt-app@ test /Users/scottbedard/code/nuxt-test-utils-repro
+> vitest
 
-## Development Server
 
-Start the development server on `http://localhost:3000`:
+ DEV  v2.1.8 /Users/scottbedard/code/nuxt-test-utils-repro
 
-```bash
-# npm
-npm run dev
+ ❯ tests/repro.test.ts (0)
 
-# pnpm
-pnpm dev
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 
-# yarn
-yarn dev
+ FAIL  tests/repro.test.ts [ tests/repro.test.ts ]
+TypeError: The URL must be of scheme file
+ ❯ node_modules/.pnpm/@nuxt+test-utils@3.15.1_@types+node@22.10.5_@vue+test-utils@2.4.6_happy-dom@16.5.3_magicast@0_bowdgsgpp7iuxou7xxi7ilwr4i/node_modules/@nuxt/test-utils/dirs.js:4:17
 
-# bun
-bun run dev
+ ❯ node_modules/.pnpm/@nuxt+test-utils@3.15.1_@types+node@22.10.5_@vue+test-utils@2.4.6_happy-dom@16.5.3_magicast@0_bowdgsgpp7iuxou7xxi7ilwr4i/node_modules/@nuxt/test-utils/dist/e2e.mjs:4:31
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  12:27:54
+   Duration  644ms (transform 100ms, setup 149ms, collect 0ms, tests 0ms, environment 87ms, prepare 105ms)
+
+ FAIL  Tests failed. Watching for file changes...
+       press h to show help, press q to quit
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
